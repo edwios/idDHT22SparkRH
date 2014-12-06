@@ -9,6 +9,7 @@
 */
 
 /*
+	Modified by Ed Wios for stability and reliability improvements
 	Modified by Paul Kourany for DHT22, Mar 28, 2014
 	Originally ported to Spark.Core
 	January 18, 2014
@@ -31,6 +32,9 @@ Based on DHT11 library: http://playground.arduino.cc/Main/DHT11Lib
 
 
 #define idDHT22LIB_VERSION "0.1"
+
+// 10s timeout
+#define TIMEOUT 10000
 
 // state codes
 #define IDDHTLIB_OK						0
