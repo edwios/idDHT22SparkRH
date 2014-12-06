@@ -80,11 +80,11 @@ int idDHT22::acquire() {
 }
 
 int idDHT22::acquireAndWait() {
-	int last = millis();
+	unsigned long last = millis();
 	acquire();
-	while(acquiring() && (millis() - lt < TIMEOUT))
+	while(acquiring() && (millis() - last < TIMEOUT))
 		;
-	if (millis() - lt >= TIMEOUT) {
+	if (millis() - last >= TIMEOUT) {
 		return IDDHTLIB_ERROR_DATA_TIMEOUT;
 	} else {
 		return getStatus();
