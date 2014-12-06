@@ -1,6 +1,6 @@
 /********************************************************************/
 /*
-FILE: idDHT22.cpp
+FILE: idDHT22RH.cpp
 VERSION: 0.0.1
 PURPOSE: Interrupt driven Lib for DHT11 with Arduino.
 LICENCE: GPL v3 (http://www.gnu.org/licenses/gpl.html)
@@ -17,7 +17,7 @@ Based on DHT11 library: http://playground.arduino.cc/Main/DHT11Lib
 	Original version from niesteszek located @ https://github.com/niesteszeck/idDHT22
 */
 
-#include "idDHT22.h"
+#include "idDHT22RH.h"
 
 
 // Fix to define word type conversion function
