@@ -8,6 +8,7 @@ DATASHEET: http://www.micro4you.com/files/sensor/DHT11.pdf
 Based on DHT11 library: http://playground.arduino.cc/Main/DHT11Lib
 */
 /*
+	Modified by Ed Wios for stability and reliability imprevement
 	Modified by Paul Kourany for DHT22, Mar 28, 2014
 	Originally ported to Spark.Core
 	January 18, 2014
@@ -79,10 +80,15 @@ int idDHT22::acquire() {
 }
 
 int idDHT22::acquireAndWait() {
+	int last = millis();
 	acquire();
-	while(acquiring())
+	while(acquiring() && (millis() - lt < TIMEOUT))
 		;
-	return getStatus();
+	if (millis() - lt >= TIMEOUT) {
+		return IDDHTLIB_ERROR_DATA_TIMEOUT;
+	} else {
+		return getStatus();
+	}
 }
 
 void idDHT22::isrCallback() {
